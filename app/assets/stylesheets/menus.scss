@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+header{
+  background-color: gray;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__title{
+  padding-left: 20px;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+.header__menu{
+  position: relative;
+  margin-right: 1.2em;
+  ul li ul{
+    display: none;
+  }
+  ul li:hover ul{
+    display: block;
+  }
+}
+
+ul > li{
+  display: inline-block;
+}
+
+ul > li > a{
+  padding: 19px 30px;
+  display: block;
+  font-size: 0.8em;
+  text-decoration: none;
+  color: white;
+}
+
+ul > li:hover > a{
+  background-color: #efefef;
+  color: #444;
+}
+
+ul li ul{
+  position: absolute;
+  top: 55px;
+  left: 0;
+}
+
+ul li ul li{
+  display: block;
+}
+
+ul li ul li a{
+  background-color: #efefef;
+  color: #444;
+}
+
+.side--bar{
+  float: left;
+  width: 5%;
+  height: calc(100vh - 50px);
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  &__icon{
+    text-align: center;
+    .todo{
+      padding: 20px 0;
+      font-size: 3.0em;
+      color: #006633;
+    }
+    .report{
+      padding: 20px 0;
+      font-size: 3.0em;
+      color: #003366; 
+    }
+    .calender{
+      padding: 20px 0;
+      font-size: 3.0em;
+      color: #993333; 
+    }
+  }
+}
+
+.contents{
+  float: left;
+  background-color: white;
+  width: 95%;
+  height: calc(100vh - 50px);
+}
+
+.content{
+  background-color: lightgray;
+  width: 900px;
+  height: calc(100vh - 50px);
+  margin: 0 auto;
+  overflow: scroll;
+  &__todo--lists{
+    background-color: white;
+    width: 800px;
+    height: 300px;
+    float: left;
+    margin: 30px;
+  }
+  &__schedule{
+    background-color: white;
+    width: 800px;
+    height: 500px;
+    float: left;
+    margin: 30px;
+  }
+}
+
