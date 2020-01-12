@@ -11,6 +11,7 @@ header{
 }
 
 .header__title{
+  color: white;
   padding-left: 20px;
   line-height: 50px;
   font-weight: bold;
@@ -68,6 +69,11 @@ ul li ul li a{
   flex-direction: column;
   &__icon{
     text-align: center;
+    .home{
+      padding: 20px 0;
+      font-size: 3.0em;
+      color: #1E90FF;
+    }
     .todo{
       padding: 20px 0;
       font-size: 3.0em;
@@ -83,12 +89,17 @@ ul li ul li a{
       font-size: 3.0em;
       color: #993333; 
     }
+    .mailer{
+      padding: 20px 0;
+      font-size: 3.0em;
+      color: white; 
+    }
   }
 }
 
 .contents{
   float: left;
-  background-color: white;
+  background-color: Menu;
   width: 95%;
   height: calc(100vh - 50px);
 }

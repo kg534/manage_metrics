@@ -1,0 +1,85 @@
+.todo--header{
+  background-color: #006633;
+  width: 900px;
+  height: 50px; 
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  &__title{
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
+  }
+  .plus{
+    padding: 0 20px;
+    font-size: 2.5em;
+    color: white;
+  }
+  .undo{
+    padding: 0 20px;
+    font-size: 2.5em;
+    color: white;
+  }
+}
+
+.todo--lists{
+  height: 400px;
+  width: 900px;
+  background-color: white;
+  margin: 0 auto;
+  overflow: scroll;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+}
+
+.todo--task{
+  margin: 20px 40px;
+  &__limit{
+    font-weight: bold;
+  }
+  &__content{
+    background-color: #eee;
+    color: #444;
+    border-radius: 3px;
+    text-align: left;
+    padding: 10px;
+  }
+}
+
+.todo--form{
+  text-align: left;
+  position: relative;
+  label{
+    float: left;
+  }
+  &__name{
+    margin: 20px 50px;
+  }
+  &__discription{
+    margin: 20px 50px;
+  }
+  &__term{
+    margin: 20px 50px;
+    display: flex;
+  }
+  &__submit--btn{
+    position: absolute;
+    top: 330px;
+    left: 100px;
+  }
+  #name{
+    width: 50%;
+    height: 40px;
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+  }
+  #discription{
+    width: 90%;
+    height: 200px;
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+  }
+  #submit--btn{
+    width: 100px;
+  }
+}

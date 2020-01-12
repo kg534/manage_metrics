@@ -1,0 +1,22 @@
+.contents
+  .todo--header
+    .todo--header__title
+      ToDo > current user tasks
+    .todo--header__task--icon
+      = link_to new_task_path do
+        = icon('fas', 'plus-circle', class: 'plus')  
+  .todo--lists
+    .todo--task
+      .todo--task__limit
+        期限：今日
+      .todo--task__content
+        =check_box_tag :check1
+        task1
+    .todo--task
+      .todo--task__limit
+        期限：明日
+      .todo--task__content
+        =check_box_tag :check1
+        task2
+        
+      
