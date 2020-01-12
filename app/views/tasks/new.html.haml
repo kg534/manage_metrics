@@ -1,0 +1,32 @@
+.contents
+  .todo--header
+    .todo--header__title
+      ToDo > タスクの追加
+    .todo--header__task--icon
+      = link_to tasks_path do
+        = icon('fas', 'undo', class: 'undo') 
+  .todo--lists
+    .todo--form
+      .todo--form__name
+        %label{ for: 'name' } 名前：
+        %input#name{ name: 'name', type: 'text' }/
+      .todo--form__discription
+        %label{ for: 'discription' } 内容：
+        %textarea#discription{ name: 'description' }
+      .todo--form__term
+        .term--start
+          %label{ for: 'start' } 期限：
+          %select{:name => "start", :required => ""}
+            %option{:value => ""} 選択してください
+            %option{:value => "選択肢1"} 選択肢のサンプル1
+            %option{:value => "選択肢2"} 選択肢のサンプル2
+            %option{:value => "選択肢3"} 選択肢のサンプル3
+        .term--end
+          %label{ for: 'end' }
+          %select{:name => "end", :required => ""}
+            %option{:value => ""} 選択してください
+            %option{:value => "選択肢1"} 選択肢のサンプル1
+            %option{:value => "選択肢2"} 選択肢のサンプル2
+            %option{:value => "選択肢3"} 選択肢のサンプル3
+      .todo--form__submit--btn
+        %input#submit--btn{ type: 'submit', value: '追加する' }/
