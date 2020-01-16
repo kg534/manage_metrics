@@ -6,17 +6,12 @@
       = link_to new_task_path do
         = icon('fas', 'plus-circle', class: 'plus')  
   .todo--lists
-    .todo--task
-      .todo--task__limit
-        期限：今日
-      .todo--task__content
-        =check_box_tag :check1
-        task1
-    .todo--task
-      .todo--task__limit
-        期限：明日
-      .todo--task__content
-        =check_box_tag :check1
-        task2
-        
-      
+    - @tasks.each do |task|
+      .todo--task
+        .todo--task__limit
+          期限：
+          = task.end
+        .todo--task__content
+          = link_to task.name, task_path(task)
+          = link_to '編集', edit_task_path(task)
+          = link_to '削除', task_path(task), method: :delete

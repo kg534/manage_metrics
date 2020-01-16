@@ -1,0 +1,27 @@
+.contents
+  .todo--header
+    .todo--header__title
+      ToDo > タスクの詳細
+    .todo--header__task--icon
+      = link_to tasks_path do
+        = icon('fas', 'undo', class: 'undo') 
+  .todo--lists
+    .todo--form
+      .todo--form__name
+        %label{ for: 'name' } 名前：
+        = @task.name
+      .todo--form__description
+        %label{ for: 'description' } 内容：
+        = @task.description
+      .todo--form__term
+        .term--start
+          %label{ for: 'start' } 開始：
+          = @task.start
+        .term--end
+          %label{ for: 'end' } 終了：
+          = @task.end
+      .todo--form__user
+        登録者：user name
+  .todo__change--btn
+    = link_to '編集', edit_task_path(@task)
+    = link_to '削除', task_path(@task), method: :delete
