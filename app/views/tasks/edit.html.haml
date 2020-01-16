@@ -1,11 +1,10 @@
 .contents
   .todo--header
     .todo--header__title
-      ToDo > タスクの追加
+      ToDo > タスクの編集
     .todo--header__task--icon
       = link_to tasks_path do
         = icon('fas', 'undo', class: 'undo') 
   .todo--lists
     .todo--form
       = render partial: 'form', locals: { task: @task }
-    

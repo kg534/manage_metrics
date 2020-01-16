@@ -1,0 +1,16 @@
+= form_for(task) do |f|
+  .todo--form__name
+    %label{ for: 'name' } 名前：
+    = f.text_field :name, placeholder: 'タスク名', id: 'form__name'
+  .todo--form__description
+    %label{ for: 'description' } 内容：
+    = f.text_area :description, placeholder: 'タスク内容を記入して下さい', id: 'form__description' 
+  .todo--form__term
+    .term--start
+      %label{ for: 'start' } 開始：
+      = f.date_select :start, {}, id: 'form__select'
+    .term--end
+      %label{ for: 'end' } 終了：
+      = f.date_select :end, {}, id: 'form__select'
+    .todo--form__submit--btn
+      = f.submit '登録する', id: 'submit--btn'

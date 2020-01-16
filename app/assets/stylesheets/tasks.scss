@@ -43,6 +43,7 @@
     border-radius: 3px;
     text-align: left;
     padding: 10px;
+    position: relative;
   }
 }
 
@@ -51,11 +52,12 @@
   position: relative;
   label{
     float: left;
+    margin-left: 15px;
   }
   &__name{
     margin: 20px 50px;
   }
-  &__discription{
+  &__description{
     margin: 20px 50px;
   }
   &__term{
@@ -67,19 +69,32 @@
     top: 330px;
     left: 100px;
   }
-  #name{
+  &__user{
+    margin: 20px 50px;
+  }
+  #form__name{
     width: 50%;
     height: 40px;
     border: 1px solid #D8D8D8;
     border-radius: 5px;
   }
-  #discription{
+  #form__description{
     width: 90%;
     height: 200px;
     border: 1px solid #D8D8D8;
     border-radius: 5px;
   }
+  #form__select{
+    height: 30px;
+  }
   #submit--btn{
     width: 100px;
   }
 }
+
+.todo__change--btn{
+  position: absolute;
+  top: 500px;
+  left: 700px;
+}
+
