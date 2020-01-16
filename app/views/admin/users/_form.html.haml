@@ -1,0 +1,18 @@
+= form_for [:admin, @user] do |f|
+  = f.label :name, '名前'
+  .user--form__name  
+    = f.text_field :name, size: '40', plcaeholder: 'ユーザー名', class: 'form--control'
+  = f.label :email, 'Email'
+  .user--form__email
+    = f.text_field :email, size: '40', plcaeholder: 'メールアドレス', class: 'form--control'
+  .user--form__admin
+    = f.check_box :admin 
+    管理者権限
+  = f.label :password, 'パスワード'
+  .user--form__password
+    = f.password_field :password, size: '40', placeholder: 'password', class: 'form--control'
+  = f.label :password_confirmation, 'パスワード(確認)'
+  .user--form__password__confirmation
+    = f.password_field :password_confirmation, size: '40', placeholder: 'password_confirmation', class: 'form--control'
+  .user--form__submit
+    = f.submit '登録する'

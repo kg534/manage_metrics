@@ -21,7 +21,11 @@
           %label{ for: 'end' } 終了：
           = @task.end
       .todo--form__user
-        登録者：user name
+        登録者：
+        = @task.user.name
+      .todo--form__created
+        登録日時：
+        = @task.created_at
   .todo__change--btn
     = link_to '編集', edit_task_path(@task)
     = link_to '削除', task_path(@task), method: :delete

@@ -1,16 +1,18 @@
 %header
   .header__title
-    Manage Metric
-  .header__menu 
-    %ul
-      %li
-        %a{:href => "#"} 
-          user name
-          %span ▼
+    Manage Metric  
+  - if current_user
+    .header__menu 
+      %ul
+        %li
+          %a{:href => admin_user_path(current_user)} 
+            = current_user.name
+            %span ▼
           %ul
             %li
-              %a{:href => "#"} sub-menu01
-            %li
-              %a{:href => "#"} sub-menu02
-            %li
-              %a{:href => "#"} sub-menu03
+              = link_to 'ログアウト', logout_path, method: :delete
+            - if current_user.admin
+              %li
+                = link_to 'ユーザー一覧', admin_users_path
+              %li
+                = link_to 'ユーザー登録', new_admin_user_path
