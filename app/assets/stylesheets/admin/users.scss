@@ -1,0 +1,22 @@
+.content--user{
+  height: 500px;
+  width: 600px;
+  background-color: white;
+  margin: 40px auto;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1{
+    font-size: large;
+  }
+  .form--control{
+    margin: 10px auto;
+    height: 40px;
+  }
+  .user--form__submit{
+    padding-top: 10px;
+    text-align: center;
+  }
+}

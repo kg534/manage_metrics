@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_params, only: [:edit, :show, :update, :destroy]
 
   def index
-    @tasks = Task.all.recent
+    @tasks = current_user.tasks.recent
   end
 
   def new
@@ -10,9 +10,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.new(task_params)
-    task.save
-    redirect_to tasks_path
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to tasks_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -33,10 +36,10 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :description, :start, :end)
+    params.require(:task).permit(:name, :description, :start, :end).merge(user_id: current_user.id)
   end
 
   def set_params
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 end

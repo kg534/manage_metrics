@@ -45,6 +45,10 @@
     padding: 10px;
     position: relative;
   }
+  .task__content--btn{
+    float: right;
+    padding: 0 10px;
+  }
 }
 
 .todo--form{
@@ -70,6 +74,9 @@
     left: 100px;
   }
   &__user{
+    margin: 20px 50px;
+  }
+  &__created{
     margin: 20px 50px;
   }
   #form__name{
