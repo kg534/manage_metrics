@@ -150,6 +150,8 @@ GEM
     sassc (2.2.1)
       ffi (~> 1.9)
     sexp_processor (4.13.0)
+    simple_calendar (2.3.0)
+      rails (>= 3.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -198,6 +200,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.7, >= 5.0.7.2)
   sass-rails (~> 5.0)
+  simple_calendar (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

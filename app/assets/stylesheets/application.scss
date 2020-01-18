@@ -1,6 +1,17 @@
+/*
+ *= require simple_calendar
+ *= require_tree .
+ *= require_self
+ */
 @import "./reset";
 @import "admin/users";
 @import "menus";
 @import "tasks";
+@import "./simple_calendar";
+@import "calendars";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
+
+a {
+  color: blue;
+}

@@ -14,12 +14,8 @@
         %label{ for: 'description' } 内容：
         = @task.description
       .todo--form__term
-        .term--start
-          %label{ for: 'start' } 開始：
-          = @task.start
-        .term--end
-          %label{ for: 'end' } 終了：
-          = @task.end
+        %label{ for: 'end_time' } 期限：
+        = @task.end_time
       .todo--form__user
         登録者：
         = @task.user.name

@@ -3,9 +3,9 @@
     %h1 ログイン
     .user--form
     = form_for(:session, url: login_path) do |f|
-      = f.label :email, 'Email'
+      = f.label :email, 'メールアドレス'
       .user--form__email
-        = f.text_field :email, size: '40', plcaeholder: 'メールアドレス', class: 'form--control'
+        = f.text_field :email, size: '40', placeholder: 'e-mail', class: 'form--control'
       = f.label :password, 'パスワード'
       .user--form__password
         = f.password_field :password, size: '40', placeholder: 'password', class: 'form--control'

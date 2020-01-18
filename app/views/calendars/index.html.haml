@@ -1,0 +1,10 @@
+.contents
+  .contents__calendar
+    = week_calendar events: @tasks do |date, tasks|
+      .calendar__date
+        = date.day
+        - tasks.each do |task|
+          .calendar__task
+            = link_to task.name + "期限", task_path(task.id)
+
+         

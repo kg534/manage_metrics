@@ -1,5 +1,5 @@
 .todo--header{
-  background-color: #006633;
+  background-color: #333333;
   width: 900px;
   height: 50px; 
   margin: 20px auto;
@@ -38,8 +38,8 @@
     font-weight: bold;
   }
   &__content{
-    background-color: #eee;
-    color: #444;
+    background-color: white;
+    border: solid 1px #dddddd;
     border-radius: 3px;
     text-align: left;
     padding: 10px;
