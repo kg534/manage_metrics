@@ -58,42 +58,26 @@ header{
   }
 }
 
-
-
 .side--bar{
   float: left;
-  width: 5%;
+  width: 100px;
   height: calc(100vh - 50px);
-  background-color: lightgray;
+  background-color: menu;
+  border-right: solid 2px #dddddd;
   display: flex;
-  flex-direction: column;
-  
+  flex-direction: column; 
   &__icon{
     text-align: center;
-    .home{
-      padding: 20px 0;
-      font-size: 3.0em;
-      color: #1E90FF;
+    label{
+      color: #444444;
     }
-    .todo{
-      padding: 20px 0;
-      font-size: 3.0em;
-      color: #006633;
+    a{
+      text-decoration: none;
     }
-    .report{
-      padding: 20px 0;
+    .icon{
+      padding-top: 20px;
       font-size: 3.0em;
-      color: #003366; 
-    }
-    .calender{
-      padding: 20px 0;
-      font-size: 3.0em;
-      color: #993333; 
-    }
-    .mailer{
-      padding: 20px 0;
-      font-size: 3.0em;
-      color: white; 
+      color: #444444;
     }
   }
 }
@@ -101,7 +85,7 @@ header{
 .contents{
   float: left;
   background-color: menu;
-  width: 95%;
+  width: calc(100vw - 100px);
   height: calc(100vh - 50px);
 }
 

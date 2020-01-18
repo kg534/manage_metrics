@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_params, only: [:edit, :show, :update, :destroy]
 
   def index
-    @tasks = current_user.tasks.recent
+    @tasks = current_user.tasks.includes(:user).recent
   end
 
   def new
@@ -36,7 +36,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :description, :start, :end).merge(user_id: current_user.id)
+    params.require(:task).permit(:name, :description, :start_time, :end_time).merge(user_id: current_user.id)
   end
 
   def set_params

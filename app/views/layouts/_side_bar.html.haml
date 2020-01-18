@@ -2,16 +2,26 @@
   .side--bar__icon
     .side--bar__icon__home
       = link_to root_path do
-        = icon('fas', 'home', class: 'home')     
+        = icon('fas', 'home', class: 'icon')
+        %br/
+        %label ホーム
     .side--bar__icon__todo
       = link_to tasks_path do
-        = icon('fas', 'clipboard-list', class: 'todo')
+        = icon('fas', 'clipboard-list', class: 'icon')
+        %br/
+        %label todo
     .side--bar__icon__report
       %a{:href => "#"}
-        = icon('fas', 'pen-square', class: 'report')
+        = icon('fas', 'pen-square', class: 'icon')
+        %br/
+        %label 日報
     .side--bar__icon__calender
-      %a{:href => "#"}
-        = icon('fas', 'calendar-alt', class: 'calender')
+      = link_to calendars_path do
+        = icon('fas', 'calendar-alt', class: 'icon')
+        %br/
+        %label カレンダー
     .side--bar__icon__mailer
       %a{:href => "#"}
-        = icon('fas', 'envelope-open-text', class: 'mailer')
+        = icon('fas', 'envelope-open-text', class: 'icon')
+        %br/
+        %label メール
