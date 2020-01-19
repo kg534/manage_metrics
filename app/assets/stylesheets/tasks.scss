@@ -24,7 +24,7 @@
 }
 
 .todo--lists{
-  height: 400px;
+  height: 500px;
   width: 900px;
   background-color: white;
   margin: 0 auto;
@@ -32,17 +32,37 @@
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
 }
 
-.todo--task{
-  margin: 20px 40px;
-  &__limit{
+.todo--lists__limit--over{
+  &__title{
+    color: red;
     font-weight: bold;
   }
+}
+
+.todo--lists__limit--within{
+  &__title{
+    font-weight: bold;
+  }
+}
+
+.todo--task{
+  margin: 20px 40px;
   &__content{
+    background-color: #f0f8ff;
+    border: solid 1px #dddddd;
+    border-radius: 3px;
+    text-align: left;
+    padding: 10px;
+    margin-top: 3px;
+    position: relative;
+  }
+  &__nil{
     background-color: white;
     border: solid 1px #dddddd;
     border-radius: 3px;
     text-align: left;
     padding: 10px;
+    margin-top: 3px;
     position: relative;
   }
   .task__content--btn{
@@ -54,6 +74,7 @@
 .todo--form{
   text-align: left;
   position: relative;
+  padding-top: 10px;
   label{
     float: left;
     margin-left: 15px;
@@ -68,10 +89,10 @@
     margin: 20px 50px;
     display: flex;
   }
-  &__submit--btn{
+  &__submit--btn{ 
     position: absolute;
-    top: 330px;
-    left: 100px;
+    top: 380px;
+    left: 110px;
   }
   &__user{
     margin: 20px 50px;
@@ -101,7 +122,7 @@
 
 .todo__change--btn{
   position: absolute;
-  top: 500px;
-  left: 700px;
+  top: 550px;
+  left: 720px;
 }
 

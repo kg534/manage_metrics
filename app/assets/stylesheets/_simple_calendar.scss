@@ -13,9 +13,10 @@
     font-weight: bold;   
   }
   
-  .day {
+  td{
+    width: 12.5%;
   }
-
+  
   .wday-0 {
     color: red
   }
@@ -27,6 +28,7 @@
   .wday-6 {
     color: blue;
   }
+  .wday-7 {}
 
   .today {
     background-color: #FFFFCC;
@@ -43,5 +45,15 @@
 
   .has-events {
     background-color: #FFFFCC;
+  }
+
+  .calendar-heading__username{
+    padding-top: 15px;
+  }
+
+  .return__btn{
+    float: right;
+    text-decoration: underline;
+    padding-right: 10px;
   }
 }

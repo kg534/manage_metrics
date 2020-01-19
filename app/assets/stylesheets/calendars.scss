@@ -1,5 +1,5 @@
 .contents__calendar{
-  height: 600px;
+  height: 660px;
   width: 900px;
   background-color: white;
   margin: 30px auto;
@@ -15,9 +15,12 @@
   .calendar__task{
     border: solid 2px navy;
     margin-top: 10px;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     font-size: 13px;
     background-color: white;
+  }
+  .td_username{
+    text-decoration: underline;
   }
 }

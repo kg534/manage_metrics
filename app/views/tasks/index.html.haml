@@ -8,12 +8,34 @@
       = link_to new_task_path do
         = icon('fas', 'plus-circle', class: 'plus')  
   .todo--lists
-    - @tasks.each do |task|
-      .todo--task
-        .todo--task__limit
-          期限：
-          = task.end_time
-        .todo--task__content
-          = link_to task.name, task_path(task)
-          = link_to '編集', edit_task_path(task), class: 'task__content--btn'
-          = link_to '削除', task_path(task), method: :delete, class: 'task__content--btn'
+    .todo--task
+      .todo--lists__limit--over
+        .todo--lists__limit--over__title
+          期限切れ
+        - if @tasks_expired.present?
+          - @tasks_expired.each do |task|
+            = render partial: "task_link", locals: { task: task }
+        - else
+          .todo--task__nil
+            該当するタスクはありません。
+    .todo--task
+      .todo--lists__limit--within
+        .todo--lists__limit--within__title
+          期限：今日 
+          = @today.strftime("%Y年%m月%d日")
+        - if @tasks_today.present?
+          - @tasks_today.each do |task|
+            = render partial: "task_link", locals: { task: task }
+        - else
+          .todo--task__nil
+            該当するタスクはありません。
+    .todo--task
+      .todo--lists__limit--within
+        .todo--lists__limit--within__title
+          期限：明日以降
+        - if @tasks_within.present?
+          - @tasks_within.each do |task|
+            = render partial: "task_link", locals: { task: task }
+        - else
+          .todo--task__nil
+            該当するタスクはありません。
