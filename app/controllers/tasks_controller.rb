@@ -2,7 +2,10 @@ class TasksController < ApplicationController
   before_action :set_params, only: [:edit, :show, :update, :destroy]
 
   def index
-    @tasks = current_user.tasks.includes(:user).recent
+    @today = Date.today
+    @tasks_today = current_user.tasks.includes(:user).search_today.recent
+    @tasks_within = current_user.tasks.includes(:user).search_within.recent
+    @tasks_expired = current_user.tasks.includes(:user).search_expired.recent
   end
 
   def new

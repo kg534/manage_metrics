@@ -12,11 +12,16 @@
   %table.table.table-striped
     %thead
       %tr
+        %th
+          = '氏名'
         - date_range.slice(0, 7).each do |day|
-          %th= t('date.abbr_day_names')[day.wday]
+          %th
+            = t('date.abbr_day_names')[day.wday]
     %tbody
       - date_range.each_slice(7) do |week|
         %tr
+          %td
+            = link_to current_user.name, calendar_path(current_user), class: 'td_username'
           - week.each do |day|
             = content_tag :td, class: calendar.td_classes_for(day) do
               - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)

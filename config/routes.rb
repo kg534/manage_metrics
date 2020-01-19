@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   root "menus#index"
   resources :tasks
-  resources :calendars, only: :index
+  resources :calendars, only: [:index, :show]
 end

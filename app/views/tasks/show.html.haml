@@ -15,13 +15,13 @@
         = @task.description
       .todo--form__term
         %label{ for: 'end_time' } 期限：
-        = @task.end_time
+        = @task.end_time.strftime("%Y年%m月%d日 %H:%M:%S")
       .todo--form__user
-        登録者：
+        %label{ for: 'user_name' } 登録者：
         = @task.user.name
       .todo--form__created
-        登録日時：
-        = @task.created_at
+        %label{ for: 'created_at' } 登録日時：
+        = @task.created_at.strftime("%Y年%m月%d日 %H:%M:%S")
   .todo__change--btn
     = link_to '編集', edit_task_path(@task)
     = link_to '削除', task_path(@task), method: :delete
