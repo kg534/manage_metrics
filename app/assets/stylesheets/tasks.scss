@@ -45,10 +45,17 @@
   }
 }
 
+.todo--lists__limit--completed{
+  &__title{
+    color: blue;
+    font-weight: bold;
+  }
+}
+
 .todo--task{
   margin: 20px 40px;
   &__content{
-    background-color: #f0f8ff;
+    background-color:#FFFFCC;
     border: solid 1px #dddddd;
     border-radius: 3px;
     text-align: left;
@@ -58,6 +65,15 @@
   }
   &__nil{
     background-color: white;
+    border: solid 1px #dddddd;
+    border-radius: 3px;
+    text-align: left;
+    padding: 10px;
+    margin-top: 3px;
+    position: relative;
+  }
+  &__completed{
+    background-color: #f0f8ff;
     border: solid 1px #dddddd;
     border-radius: 3px;
     text-align: left;
@@ -100,6 +116,9 @@
   &__created{
     margin: 20px 50px;
   }
+  &__completed{
+    margin: 20px 50px;
+  }
   #form__name{
     width: 50%;
     height: 40px;
@@ -120,9 +139,27 @@
   }
 }
 
+.todo--select__complete{
+  position: absolute;
+  top: 30px;
+  left: 650px;
+}
+
 .todo__change--btn{
   position: absolute;
   top: 550px;
   left: 720px;
 }
 
+input#submit_btn{
+    position: absolute;
+    top: 650px;
+    left: 670px;
+    padding: 15px 40px;
+    font-size: 1.0em;
+    background-color: #333333;
+    color: #fff;
+    border-style: none;
+    border-radius: 10px;
+  }
+  

@@ -8,5 +8,9 @@
   .todo--form__term
     %label{ for: 'end' } 期限：
     = f.datetime_select :end_time, {}, id: 'form__select'
-    .todo--form__submit--btn
-      = f.submit '登録する', id: 'submit--btn'
+  - if task.name != nil
+    .todo--select__complete
+      = f.check_box :complete
+      完了した
+  .todo--form__submit--btn
+    = f.submit '登録する', id: 'submit--btn'

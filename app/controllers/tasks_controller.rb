@@ -3,9 +3,11 @@ class TasksController < ApplicationController
 
   def index
     @today = Date.today
-    @tasks_today = current_user.tasks.includes(:user).search_today.recent
-    @tasks_within = current_user.tasks.includes(:user).search_within.recent
-    @tasks_expired = current_user.tasks.includes(:user).search_expired.recent
+    tasks = current_user.tasks.includes(:user)
+    @tasks_today = tasks.search_today.search_not_completed.recent
+    @tasks_within = tasks.search_within.search_not_completed.recent
+    @tasks_expired = tasks.search_expired.search_not_completed.recent
+    @tasks_completed = tasks.search_completed.recent
   end
 
   def new
@@ -37,9 +39,27 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def destroy_all
+    checked_data = params[:deletes].keys
+    if Task.destroy(checked_data)
+      redirect_to tasks_path
+    else
+      render action: 'index'
+    end
+  end
+
+  def completed_all
+    checked_data = params[:patches].keys
+    if Task.where(id: checked_data).update_all(complete: true)
+      redirect_to tasks_path
+    else
+      render action: 'index'
+    end
+  end
+
   private
   def task_params
-    params.require(:task).permit(:name, :description, :start_time, :end_time).merge(user_id: current_user.id)
+    params.require(:task).permit(:name, :description, :start_time, :end_time, :complete).merge(user_id: current_user.id)
   end
 
   def set_params
