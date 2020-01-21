@@ -2,8 +2,8 @@
   .calendar-heading
     = link_to t('simple_calendar.previous', default: '≪'), calendar.url_for_previous_view, class: 'arrow_tag'
     %span.calendar-title
+      = start_date.strftime("%Y年")
       = t('date.month_names')[start_date.month]
-      = start_date.year
     = link_to t('simple_calendar.next', default: '≫'), calendar.url_for_next_view, class: 'arrow_tag'
     .calendar-heading__username
       = @user.name

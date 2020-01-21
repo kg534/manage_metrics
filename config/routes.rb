@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
 
   root "menus#index"
-  resources :tasks
+  resources :tasks 
+  patch :tasks, to: 'tasks#completed_all'
+  delete :tasks, to: 'tasks#destroy_all'
   resources :calendars, only: [:index, :show]
 end

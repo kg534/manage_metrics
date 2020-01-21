@@ -22,6 +22,12 @@
       .todo--form__created
         %label{ for: 'created_at' } 登録日時：
         = @task.created_at.strftime("%Y年%m月%d日 %H:%M:%S")
+      .todo--form__completed
+        %label{ for: 'created_at' } 完了状況：
+        - if @task.complete == true
+          完了
+        - else
+          未完了
   .todo__change--btn
     = link_to '編集', edit_task_path(@task)
     = link_to '削除', task_path(@task), method: :delete

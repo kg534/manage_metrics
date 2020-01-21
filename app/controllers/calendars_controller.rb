@@ -10,6 +10,6 @@ class CalendarsController < ApplicationController
 
   private
   def set_task_schedule
-    @tasks = current_user.tasks.includes(:user).search_task_calendar
+    @tasks = current_user.tasks.includes(:user)
   end
 end

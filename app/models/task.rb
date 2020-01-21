@@ -8,7 +8,8 @@ class Task < ApplicationRecord
   scope :search_today, -> { where("end_time >= ? AND end_time < ?", today, today + 1) }
   scope :search_within, -> { where('end_time >= ?', today + 1) }
   scope :search_expired, -> { where('end_time < ?', today) }
-  scope :search_task_calendar, -> { where('end_time >= ?', today) }
+  scope :search_completed, -> { where(complete: true) }
+  scope :search_not_completed, -> { where(complete: false) }
 
   belongs_to :user
 
