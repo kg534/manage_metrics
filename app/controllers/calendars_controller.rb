@@ -1,15 +1,16 @@
 class CalendarsController < ApplicationController
-  before_action :set_task_schedule, only: [:index, :show]
-  
   def index
+    @groups = current_user.groups
+  end
+
+  def group_display
+    @groups = current_user.groups
+    group = Group.find(params[:group_id])
+    @users = group.users
   end
 
   def show
     @user = User.find(params[:id])
-  end
-
-  private
-  def set_task_schedule
-    @tasks = current_user.tasks.includes(:user)
+    @tasks = current_user.tasks.includes(:user);
   end
 end

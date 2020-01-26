@@ -1,5 +1,4 @@
 .simple-calendar {
-  height: 500px;
   width: 800px;
   margin: 0 auto;
   
@@ -49,6 +48,10 @@
 
   .calendar-heading__username{
     padding-top: 15px;
+  }
+
+  .calendar-heading-hidden{
+    visibility:hidden;
   }
 
   .return__btn{

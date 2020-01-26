@@ -1,0 +1,23 @@
+.contents
+  .contents__calendar
+    - @users.each_with_index do |user|
+      = week_calendar events: user.tasks do |date, tasks|
+        .calendar__date
+          = date.day
+          - tasks.each do |task|
+            - if task.user.id == current_user.id
+              .calendar__task
+                = link_to task.name + "期限", task_path(task.id)
+            - else
+              .calendar__task
+                = task.name 
+      .contents__username
+        - if user.id == current_user.id
+          = link_to user.name, calendar_path(user), class: 'td_username'
+        - else
+          .td_username
+            = user.name 
+    .group--select--btn
+      = form_tag({ controller: :calendars, action: :group_display }, method: 'get') do
+        = select_tag :group_id, options_from_collection_for_select(@groups, :id, :name , params[:group_id]), id: 'select--btn'
+        = submit_tag '選択', id: 'submit--btn';

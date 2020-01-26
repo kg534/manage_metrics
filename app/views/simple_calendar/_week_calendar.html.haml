@@ -21,7 +21,6 @@
       - date_range.each_slice(7) do |week|
         %tr
           %td
-            = link_to current_user.name, calendar_path(current_user), class: 'td_username'
           - week.each do |day|
             = content_tag :td, class: calendar.td_classes_for(day) do
               - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)

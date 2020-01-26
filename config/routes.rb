@@ -11,5 +11,10 @@ Rails.application.routes.draw do
   resources :tasks 
   patch :tasks, to: 'tasks#completed_all'
   delete :tasks, to: 'tasks#destroy_all'
-  resources :calendars, only: [:index, :show]
+  resources :calendars, only: [:index, :show] do
+    collection do
+      get 'group_display'
+    end
+  end
+  resources :groups, only: [:new, :create, :edit, :update]
 end
