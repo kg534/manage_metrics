@@ -1,10 +1,11 @@
 .contents__calendar{
-  height: 660px;
+  height: 600px;
   width: 900px;
   background-color: white;
   margin: 30px auto;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
   overflow: scroll;
+  position: relative;
   a{
     text-decoration: none;
     color: black;
@@ -13,14 +14,42 @@
     float: left;
   }
   .calendar__task{
-    border: solid 2px navy;
-    margin-top: 10px;
-    padding: 5px;
-    text-align: center;
-    font-size: 13px;
-    background-color: white;
+      border: solid 2px navy;
+      margin-top: 10px;
+      padding: 5px;
+      text-align: center;
+      font-size: 13px;
+      background-color: white;
+  }
+  a.td_username{
+    text-decoration: underline;
+    position: absolute;
+    left: 6%;
+    margin-top: -80px;
   }
   .td_username{
-    text-decoration: underline;
+    position: absolute;
+    left: 6%;
+    margin-top: -80px;
+  }
+  .group--select--btn{
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    left: 650px;
+    #select--btn{
+      width: 90px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 13px;
+    }
+    #submit--btn{
+      width: 100px;
+      position: absolute;
+      left: 100px;
+      height: 20px;
+      line-height: 20px;
+      padding: 0 20px;
+    }
   }
 }

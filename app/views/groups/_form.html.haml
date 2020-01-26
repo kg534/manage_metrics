@@ -1,0 +1,9 @@
+= form_for group do |f|
+  .group--form__name
+    %label{ for: 'name' } グループ名：
+    = f.text_field :name, placeholder: "グループ名を入力してください", id: 'group--form'
+  .group--form__member
+    %label{ for: 'user_ids' } メンバー：
+    = f.collection_check_boxes :user_ids, User.all, :id, :name, class: 'form--control'
+  .group--form__submit
+    = f.submit "作成", class: 'form--control'

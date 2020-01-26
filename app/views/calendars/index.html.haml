@@ -1,10 +1,15 @@
 .contents
   .contents__calendar
-    = week_calendar events: @tasks do |date, tasks|
+    = week_calendar events: current_user.tasks do |date, tasks|
       .calendar__date
         = date.day
         - tasks.each do |task|
           .calendar__task
             = link_to task.name + "期限", task_path(task.id)
-
-         
+    .contents__username
+      = link_to current_user.name, calendar_path(current_user), class: 'td_username'
+    .group--select--btn
+      = form_tag({ controller: :calendars, action: :group_display }, method: 'get') do
+        = select_tag :group_id, options_from_collection_for_select(@groups, :id, :name , params[:group_id]), id: 'select--btn'
+        = submit_tag '選択', id: 'submit--btn';
+    

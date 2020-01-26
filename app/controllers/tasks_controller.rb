@@ -16,6 +16,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    
     if @task.save
       redirect_to tasks_path
     else
@@ -41,6 +42,7 @@ class TasksController < ApplicationController
 
   def destroy_all
     checked_data = params[:deletes].keys
+    
     if Task.destroy(checked_data)
       redirect_to tasks_path
     else
@@ -50,6 +52,7 @@ class TasksController < ApplicationController
 
   def completed_all
     checked_data = params[:patches].keys
+    
     if Task.where(id: checked_data).update_all(complete: true)
       redirect_to tasks_path
     else
