@@ -8,9 +8,14 @@ Rails.application.routes.draw do
   end
 
   root "menus#index"
+  get :memus, to: 'menus#group_display'
+
   resources :tasks 
   patch :tasks, to: 'tasks#completed_all'
   delete :tasks, to: 'tasks#destroy_all'
+
+  resources :reports
+  
   resources :calendars, only: [:index, :show] do
     collection do
       get 'group_display'

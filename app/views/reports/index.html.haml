@@ -1,0 +1,19 @@
+.contents
+  .report--header
+    .report--header__title
+      DailyReport > 
+      = current_user.name
+      日報一覧
+    .report--header__task--icon
+      = link_to new_report_path do
+        = icon('fas', 'plus-circle', class: 'plus') 
+  .reports
+    .report--lists
+      - @reports.each do |report|
+        .report--content
+          = report.active_date
+          = link_to '詳細', report_path(report)
+          = link_to '編集', edit_report_path(report)
+          = link_to '削除', report_path(report), method: :delete
+    .report--chart
+      = column_chart @chart 

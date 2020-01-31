@@ -95,19 +95,32 @@ header{
   height: calc(100vh - 50px);
   margin: 0 auto;
   overflow: scroll;
-  &__todo--lists{
-    background-color: white;
-    width: 800px;
-    height: 300px;
-    float: left;
-    margin: 30px;
-  }
-  &__schedule{
-    background-color: white;
-    width: 800px;
-    height: 500px;
-    float: left;
-    margin: 30px;
-  }
 }
+
+.chart{
+  float: right;
+  width: 700px;
+  height: 330px;
+  background-color: white;
+  margin: 20px;
+}
+
+.group{
+  float: right;
+  width: 700px;
+  height: 330px;
+  background-color: white;
+  margin-right: 20px;
+  overflow: scroll;
+}
+
+.message{
+  height: 680px;
+  width: 560px;
+  background-color: white;
+  float: left;
+  margin: 20px;
+  overflow: scroll;
+}
+
 
