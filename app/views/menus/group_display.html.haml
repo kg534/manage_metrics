@@ -4,7 +4,11 @@
       = select_tag :group_id, options_from_collection_for_select(@groups, :id, :name , params[:group_id]), id: 'select--btn'
       = submit_tag '選択', id: 'submit--btn';
   .chart
-    = line_chart @charts
+    = column_chart @users.map { |user|                                                              |
+      { name: user.name, data: user.reports.where(active_date: Time.now.all_month).map { |report|   |
+        report.slice(:active_date, :order).values }                                                 |
+      }                                                                                             |
+    }                                                                                               |
   .group
     .todo--lists
       .todo--task
@@ -50,4 +54,4 @@
                 = link_to '削除', task_path(task), method: :delete, class: 'task__content--btn'
           - else
             .todo--task__nil
-              該当するタスクはありません。
+              該当するタスクはありません。    

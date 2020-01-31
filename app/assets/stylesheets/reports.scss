@@ -1,0 +1,74 @@
+.contents{
+  background-color: menu;
+}
+
+.report--chart{
+  width: 900px;
+  height: 300px;
+  background-color: white;
+  margin: 10px auto;
+}
+
+.report--lists{
+  width: 900px;
+  height: 200px;
+  background-color: white;
+  overflow: scroll;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column; 
+}
+
+.report--header{
+  background-color: #333333;
+  width: 900px;
+  height: 50px; 
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  &__title{
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
+  }
+  .plus{
+    padding: 0 20px;
+    font-size: 2.5em;
+    color: white;
+  }
+  .undo{
+    padding: 0 20px;
+    font-size: 2.5em;
+    color: white;
+  }
+}
+
+.report{
+  height: 600px;
+  width: 900px;
+  background-color: white;
+  margin: 0 auto;
+  overflow: scroll;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+}
+
+.report--form{
+  position: relative;
+  label{
+    float: right;
+    margin-right: 700px;
+  }
+  .form__report{
+   margin-left: 200px;
+   margin-top: -20px;
+  }
+}
+
+#submit--btn__report{
+  position: absolute;
+  top: 550px;
+  left: 400px;
+}
+
+

@@ -11,7 +11,7 @@
         %br/
         %label タスク
     .side--bar__icon__report
-      %a{:href => "#"}
+      = link_to reports_path do
         = icon('fas', 'pen-square', class: 'icon')
         %br/
         %label 日報
