@@ -13,7 +13,7 @@
             期限切れ
           - if @tasks_expired.present?
             - @tasks_expired.each do |task|
-              = render partial: "task_operation", locals: { task: task }
+              = render partial: "menu_tasks", locals: { task: task }
           - else
             .todo--task__nil
               該当するタスクはありません。
@@ -24,7 +24,7 @@
             = @today.strftime("%Y年%m月%d日")
           - if @tasks_today.present?
             - @tasks_today.each do |task|
-              = render partial: "task_operation", locals: { task: task }
+              = render partial: "menu_tasks", locals: { task: task }
           - else
             .todo--task__nil
               該当するタスクはありません。
@@ -34,7 +34,7 @@
             期限：明日以降
           - if @tasks_within.present?
             - @tasks_within.each do |task|
-              = render partial: "task_operation", locals: { task: task }
+              = render partial: "menu_tasks", locals: { task: task }
           - else
             .todo--task__nil
               該当するタスクはありません。

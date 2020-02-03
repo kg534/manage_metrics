@@ -54,5 +54,5 @@
           - else
             .todo--task__nil
               該当するタスクはありません。
-      = submit_tag '完了した', id: 'submit_btn';
-      -# = submit_tag '削除する', class: 'checked-delete-btn';
+      = submit_tag '完了した', id: 'submit_btn'
+  = link_to 'エクスポート', tasks_path(format: :csv), class: 'export_btn'

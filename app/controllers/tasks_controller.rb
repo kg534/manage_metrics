@@ -8,6 +8,11 @@ class TasksController < ApplicationController
     @tasks_within = tasks.search_within.search_not_completed.recent
     @tasks_expired = tasks.search_expired.search_not_completed.recent
     @tasks_completed = tasks.search_completed.recent
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data tasks.generate_csv, filename: "task-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+    end
   end
 
   def new

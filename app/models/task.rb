@@ -16,4 +16,21 @@ class Task < ApplicationRecord
   def start_time
     self.end_time
   end
+
+  def self.csv_attributes
+    ["name", "description", "end_time", "complete", "created_at", "updated_at"]
+  end
+
+  def self.csv_headers
+    ["名前", "タスク内容", "期限", "完了フラグ", "登録日", "更新日"]
+  end
+
+  def self.generate_csv
+    CSV.generate(headers: true) do |csv|
+      csv << csv_headers
+      all.each do |task|
+        csv << csv_attributes.map{ |attr| task.send(attr) }
+      end
+    end
+  end
 end
