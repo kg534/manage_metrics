@@ -153,8 +153,8 @@
 
 input#submit_btn{
     position: absolute;
-    top: 650px;
-    left: 670px;
+    top: 660px;
+    left: 600px;
     padding: 15px 40px;
     font-size: 1.0em;
     background-color: #333333;
@@ -162,4 +162,17 @@ input#submit_btn{
     border-style: none;
     border-radius: 10px;
   }
+
+.export_btn{
+  position: absolute;
+  top: 660px;
+  left: 800px;
+  padding: 15px 25px;
+  font-size: 1.0em;
+  background-color: gray;
+  color: #fff;
+  border-style: none;
+  border-radius: 10px;
+  text-decoration: none;
+}
   

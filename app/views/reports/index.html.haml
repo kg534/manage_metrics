@@ -16,4 +16,8 @@
           = link_to '編集', edit_report_path(report)
           = link_to '削除', report_path(report), method: :delete
     .report--chart
-      = column_chart @chart 
+      = column_chart @chart
+  = form_tag import_reports_path, multipart: true do
+    = file_field_tag :file 
+    = submit_tag "インポート", id: 'submit_btn'
+  = link_to 'エクスポート', reports_path(format: :csv), class: 'export_btn'

@@ -8,6 +8,20 @@ class ReportsController < ApplicationController
     @reports.each do |report|
       @chart << [report.active_date, report.order]
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @reports.generate_csv, filename: "reports-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+    end
+  end
+
+  def import
+    if params[:file] != nil
+      current_user.reports.import(params[:file])
+      redirect_to reports_path
+    else
+      redirect_to reports_path
+    end
   end
 
   def new
