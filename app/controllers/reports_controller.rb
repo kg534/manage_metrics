@@ -59,6 +59,6 @@ class ReportsController < ApplicationController
   end
 
   def set_params
-    @report = current_user.reports.find(params[:id])
+    @report = Report.includes(:user).find(params[:id])
   end
 end

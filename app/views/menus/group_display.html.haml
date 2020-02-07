@@ -3,6 +3,12 @@
     = form_tag({ controller: :menus, action: :group_display }, method: 'get') do
       = select_tag :group_id, options_from_collection_for_select(@groups, :id, :name , params[:group_id]), id: 'select--btn'
       = submit_tag '選択', id: 'submit--btn';
+    最新の日報
+    - @latest_reports.each do |reports|
+      - reports.each do |report| 
+        = link_to report.user.name, report_path(report.id)
+        = report.active_date  
+        = report.order
   .chart
     = column_chart @users.map { |user|                                                              |
       { name: user.name, data: user.reports.where(active_date: Time.now.all_month).map { |report|   |

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   root "menus#index"
+  resources :menus, only: :show
   get :memus, to: 'menus#group_display'
 
   resources :tasks 

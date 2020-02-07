@@ -7,6 +7,7 @@ class Report < ApplicationRecord
   belongs_to :user
 
   scope :recent, -> { order(active_date: :asc) }
+  scope :latest, -> { order(:active_date).reverse_order.limit(1) }
 
   def self.csv_attributes
     ["active_date", "order", "phone", "visit", "negotiate", "good_thing", "problem", "goal", "created_at", "updated_at"]
