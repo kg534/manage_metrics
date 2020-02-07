@@ -4,9 +4,8 @@ class MenusController < ApplicationController
   
   def index
     reports = current_user.reports.includes(:user).recent.where(active_date: Time.now.all_month)
-    
+
     @charts = []
-    
     reports.each do |report|
       @charts << [report.active_date, report.order]
     end
@@ -14,7 +13,13 @@ class MenusController < ApplicationController
 
   def group_display
     group = Group.find(params[:group_id])
+
+    report = Report.all
     @users = group.users
+    @latest_reports = []
+    @users.each do |user|
+      @latest_reports << Report.where(user_id: user.id).latest
+    end
   end
 
   private 
