@@ -1,53 +1,84 @@
 .contents
-  .message
-    = form_tag({ controller: :menus, action: :group_display }, method: 'get') do
-      = select_tag :group_id, options_from_collection_for_select(@groups, :id, :name , params[:group_id]), id: 'select--btn'
-      = submit_tag '選択', id: 'submit--btn';
+  .reports
+    .reports__header
+      .reports__header__title
+        = current_user.name
+        日報一覧
+      .reports__header__label
+        グループを選択：
+      .reports__header__group--select
+        = form_tag({ controller: :menus, action: :group_display }, method: 'get') do
+          = select_tag :group_id, options_from_collection_for_select(@groups, :id, :name , params[:group_id]), id: 'select-btn'
+          = submit_tag '選択', id: 'submit-btn';
+    .reports__contents
+      - @reports.each do |report|
+        .report
+          .report__header
+            .report__header__owner  
+              = report.active_date.strftime('%Y年%m月%d日')
+          .report__actual
+            受注実績：
+            = report.order
+          .report__goodthing
+            %h1 よかった点
+            = simple_format report.good_thing
+          .report__problem
+            %h1 課題・改善策
+            = simple_format report.problem
+          .report__goal
+            %h1 次回目標
+            = simple_format report.goal
   .chart
+    .chart__header
+      .chart__header__title
+        受注実績
     = line_chart @charts
-  .group
-    .todo--lists
-      .todo--task
-        .todo--lists__limit--over
-          .todo--lists__limit--over__title
+  .menu--todo
+    .menu--todo__header
+      .menu--todo__header__title
+        = link_to current_user.name + " タスク", tasks_path, class: 'task-link'
+    .menu--todo--lists
+      .menu--todo--task
+        .menu--todo--lists__limit--over
+          .menu--todo--lists__limit--over__title
             期限切れ
           - if @tasks_expired.present?
             - @tasks_expired.each do |task|
               = render partial: "menu_tasks", locals: { task: task }
           - else
-            .todo--task__nil
+            .menu--todo--task__nil
               該当するタスクはありません。
-      .todo--task
-        .todo--lists__limit--within
-          .todo--lists__limit--within__title
+      .menu--todo--task
+        .menu--todo--lists__limit--within
+          .menu--todo--lists__limit--within__title
             期限：今日 
             = @today.strftime("%Y年%m月%d日")
           - if @tasks_today.present?
             - @tasks_today.each do |task|
               = render partial: "menu_tasks", locals: { task: task }
           - else
-            .todo--task__nil
+            .menu--todo--task__nil
               該当するタスクはありません。
-      .todo--task
-        .todo--lists__limit--within
-          .todo--lists__limit--within__title
+      .menu--todo--task
+        .menu--todo--lists__limit--within
+          .menu--todo--lists__limit--within__title
             期限：明日以降
           - if @tasks_within.present?
             - @tasks_within.each do |task|
               = render partial: "menu_tasks", locals: { task: task }
           - else
-            .todo--task__nil
+            .menu--todo--task__nil
               該当するタスクはありません。
-      .todo--task
-        .todo--lists__limit--completed
-          .todo--lists__limit--completed__title
+      .menu--todo--task
+        .menu--todo--lists__limit--completed
+          .menu--todo--lists__limit--completed__title
             完了タスク
           - if @tasks_completed.present?
             - @tasks_completed.each do |task|
-              .todo--task__completed
+              .menu--todo--task__completed
                 = link_to task.name, task_path(task)
                 = link_to '編集', edit_task_path(task), class: 'task__content--btn'
                 = link_to '削除', task_path(task), method: :delete, class: 'task__content--btn'
           - else
-            .todo--task__nil
-              該当するタスクはありません。
+            .menu--todo--task__nil
+              該当するタスクはありません。 
