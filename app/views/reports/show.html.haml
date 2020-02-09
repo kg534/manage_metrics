@@ -8,3 +8,13 @@
   .report
     .report--form
       = render partial: 'form', locals: { report: @report }
+    .container
+      = form_for([@report, @comment]) do |f|
+        = f.text_area :text, placeholder: 'コメントする', row: '2', class: 'comment__text'
+        = f.submit '登録', class: 'comment__submit'
+    .comments
+      %h1 コメント一覧
+      - if @comments
+        - @comments.each do |comment|
+          = comment.user.name
+          = comment.text

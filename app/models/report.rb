@@ -5,6 +5,7 @@ class Report < ApplicationRecord
   validates :negotiate, presence: true
 
   belongs_to :user
+  has_many :comments
 
   scope :recent, -> { order(active_date: :asc) }
   scope :latest, -> { order(:active_date).reverse_order.limit(1) }
