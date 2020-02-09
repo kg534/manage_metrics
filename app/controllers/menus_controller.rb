@@ -3,19 +3,18 @@ class MenusController < ApplicationController
   before_action :set_tasks, only: [:index, :group_display]
   
   def index
-    reports = current_user.reports.includes(:user).recent.where(active_date: Time.now.all_month)
+    @reports = current_user.reports.includes(:user).date_desc.where(active_date: Time.now.all_month)
 
     @charts = []
-    reports.each do |report|
+    @reports.each do |report|
       @charts << [report.active_date, report.order]
     end
   end
 
   def group_display
-    group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
 
-    report = Report.all
-    @users = group.users
+    @users = @group.users
     @latest_reports = []
     @users.each do |user|
       @latest_reports << Report.where(user_id: user.id).latest

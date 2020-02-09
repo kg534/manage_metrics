@@ -82,6 +82,24 @@ header{
   }
 }
 
+@mixin menu_report{
+  max-width: 540px;
+  margin: 15px 5px;
+  padding: 0.5em;
+  color: #494949;
+  background: #fffaf4;
+  border-left: solid 5px #ffaf58;
+}
+
+@mixin menu_todo{
+  border: solid 1px #dddddd;
+  border-radius: 3px;
+  text-align: left;
+  padding: 10px;
+  margin-top: 3px;
+  position: relative;
+}
+
 .contents{
   float: left;
   background-color: menu;
@@ -103,24 +121,168 @@ header{
   height: 330px;
   background-color: white;
   margin: 20px;
+  &__header{
+    height: 30px;
+    width: 700px;
+    background-color: #333333;
+    &__title{
+      line-height: 30px;
+      padding-left: 10px;
+      color: white;
+    }
+  }
+  &__content{
+    margin-top: 5px;
+  }
 }
 
-.group{
+.reports{
+  height: 680px;
+  width: 570px;
+  background-color: white;
+  float: left;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow-y: auto;
+  &__header{
+    height: 30px;
+    width: 570px;
+    background-color: #333333;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    &__title{
+      line-height: 30px;
+      padding-left: 10px;
+      color: white;
+    }
+    &__label{
+      line-height: 30px;
+      color: white;
+      margin-right: -90px;
+    }
+    &__group--select{
+      padding-right: 10px;
+      position: relative;
+      #select-btn{
+        position: absolute;
+        top: 4px;
+        right: 60px;
+      }
+    }
+  }
+  &__contents{
+    padding-top: 30px;
+    height: 100%;
+    width: 570px;
+    margin: 0 auto;
+    .report{
+      padding: 10px;
+      max-width: 570px;
+      &__header{
+        border-bottom: solid 3px black;
+        display: flex;
+        z-index: 1;
+        justify-content: space-between;
+        &__link{
+          padding-right: 10px;
+        }      
+      }
+      h1{
+        font-weight: bold;
+        padding-bottom: 5px;
+      }
+      &__actual{
+        font-weight: bold;
+        padding: 0px 5px;
+        margin-top: 5px;
+      }
+      &__goodthing{
+        @include menu_report();
+      }
+      &__problem{
+        @include menu_report();
+      }
+      &__goal{  
+        @include menu_report();
+      }
+    }
+  }
+}
+
+.menu--todo{
   float: right;
   width: 700px;
   height: 330px;
   background-color: white;
   margin-right: 20px;
   overflow: scroll;
-}
+  &__header{
+    height: 30px;
+    width: 700px;
+    background-color: #333333;
+    position: fixed;
+    z-index: 1;
+    &__title{
+      line-height: 30px;
+      padding-left: 10px;
+      color: white;
+      a{
+        color: white;
+      }
+    }
+  }
 
-.message{
-  height: 680px;
-  width: 560px;
-  background-color: white;
-  float: left;
-  margin: 20px;
-  overflow: scroll;
+  .menu--todo--lists{
+    padding-top: 20px;
+    height: 500px;
+    width: 700px;
+    background-color: white;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  }
+  
+  .menu--todo--lists__limit--over{
+    &__title{
+      color: red;
+      font-weight: bold;
+    }
+  }
+  
+  .menu--todo--lists__limit--within{
+    &__title{
+      font-weight: bold;
+    }
+  }
+  
+  .menu--todo--lists__limit--completed{
+    &__title{
+      color: blue;
+      font-weight: bold;
+    }
+  }
+  
+  .menu--todo--task{
+    margin: 20px 40px;
+    &__content{
+      background-color:#FFFFCC;
+      @include menu_todo();
+    }
+    &__nil{
+      background-color: white;
+      @include menu_todo();
+    }
+    &__completed{
+      background-color: #f0f8ff;
+      @include menu_todo();
+    }
+    .task__content--btn{
+      float: right;
+      padding: 0 10px;
+    }
+  }
 }
 
 

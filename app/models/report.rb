@@ -8,6 +8,7 @@ class Report < ApplicationRecord
   has_many :comments
 
   scope :recent, -> { order(active_date: :asc) }
+  scope :date_desc, -> { order(active_date: :desc) }
   scope :latest, -> { order(:active_date).reverse_order.limit(1) }
 
   def self.csv_attributes
