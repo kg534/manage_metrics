@@ -5,16 +5,54 @@
     .report--header__task--icon
       = link_to reports_path do
         = icon('fas', 'undo', class: 'undo') 
-  .report
-    .report--form
-      = render partial: 'form', locals: { report: @report }
-    .container
-      = form_for([@report, @comment]) do |f|
-        = f.text_area :text, placeholder: 'コメントする', row: '2', class: 'comment__text'
-        = f.submit '登録', class: 'comment__submit'
+  .reports
+    .report--share
+      .report--share__content
+        .report--share__content__owner  
+          = @report.user.name
+          = @report.active_date.strftime('%Y年%m月%d日')
+          - if @report.user.id == current_user.id
+            .report--share__content__owner__link
+              = link_to '編集', edit_report_path(@report)
+              = link_to '削除', task_path(@report), method: :delete
+        .report--share__content__actual
+          受注実績：
+          = @report.order
+        .report--share__content__process
+          %ul
+            %li  
+              有効面談：
+              = @report.phone
+            %li
+              有効訪問：
+              = @report.visit
+            %li
+              商談：
+              = @report.negotiate
+        .report--share__content__text
+          %ul
+            %li 
+              %h1 よかった点
+              = simple_format @report.good_thing
+            %li 
+              %h1 課題・改善策
+              = simple_format @report.problem
+            %li 
+              %h1 次回目標
+              = simple_format @report.goal
     .comments
-      %h1 コメント一覧
-      - if @comments
-        - @comments.each do |comment|
-          = comment.user.name
-          = comment.text
+      .comments__form
+        = form_for([@report, @comment]) do |f|
+          = f.text_area :text, placeholder: 'コメントする', row: '2', class: 'comment__text'
+          = f.submit '送信', class: 'comment__submit'
+      .comments__list
+        %h1 < コメント一覧 >
+        - if @comments
+          - @comments.each do |comment|
+            .comment
+              .comment__owner
+                = comment.user.name
+              .comment__separate
+                ：
+              .comment__text
+                = simple_format comment.text

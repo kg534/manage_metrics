@@ -35,4 +35,9 @@ class Report < ApplicationRecord
       report.save!
     end
   end
+
+  def self.search(keyword)
+    return Report.includes(:user).recent.where(active_date: Time.now.all_month) unless keyword
+    Report.recent.where(active_date: keyword.all_month)
+  end
 end 

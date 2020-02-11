@@ -1,10 +1,9 @@
 .contents
-  .report--header
-    .report--header__title
+  .todo--header
+    .todo--header__title
       DailyReport > 日報を作成
-    .report--header__task--icon
+    .todo--header__task--icon
       = link_to reports_path do
         = icon('fas', 'undo', class: 'undo') 
-  .report
-    .report--form
-      = render partial: 'form', locals: { report: @report }
+  .report--form
+    = render partial: 'form', locals: { report: @report }

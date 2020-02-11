@@ -1,0 +1,33 @@
+.report
+  .report__content
+    .report__content__owner  
+      = link_to report.active_date.strftime('%Y年%m月%d日'), report_path(report), class: 'show__link'
+      - if report.user.id == current_user.id
+        .report__content__owner__link
+          = link_to '編集', edit_report_path(report)
+          = link_to '削除', task_path(report), method: :delete
+    .report__content__actual
+      受注実績：
+      = report.order
+    .report__content__process
+      %ul
+        %li  
+          有効面談：
+          = report.phone
+        %li
+          有効訪問：
+          = report.visit
+        %li
+          商談：
+          = report.negotiate
+    .report__content__text
+      %ul
+        %li 
+          %h1 よかった点
+          = simple_format report.good_thing
+        %li 
+          %h1 課題・改善策
+          = simple_format report.problem
+        %li 
+          %h1 次回目標
+          = simple_format report.goal

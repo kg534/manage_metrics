@@ -136,7 +136,7 @@ header{
   }
 }
 
-.reports{
+.menu--reports{
   height: 680px;
   width: 570px;
   background-color: white;
@@ -178,7 +178,7 @@ header{
     height: 100%;
     width: 570px;
     margin: 0 auto;
-    .report{
+    .menu--report{
       padding: 10px;
       max-width: 570px;
       &__header{

@@ -3,7 +3,8 @@
     .todo--header__title
       Report > 
       = current_user.name
-      今月日報一覧
+      = @month
+      日報一覧
     .todo--header__search--form
       = form_tag({ controller: :reports, action: :search }, method: 'get') do
         = text_field_tag :keyword, '', placeholder: "2019年1月なら'201901''", class: 'search--field'
