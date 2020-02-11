@@ -1,27 +1,31 @@
 = form_for(report) do |f|
-  .report--form__date
-    %label{ for: 'active_date' } 活動日：
-    = f.date_select :active_date, {}, class: 'form__report'
-  .report--form__order
-    %label{ for: 'order' } 受注件数：
-    = f.text_field :order, class: 'form__report'
-  .report--form__phone
-    %label{ for: 'phone' } 有効電話件数：
-    = f.text_field :phone, class: 'form__report'
-  .report--form__visit
-    %label{ for: 'visit' } 有効訪問件数：
-    = f.text_field :visit, class: 'form__report'
-  .report--form__negotiate
-    %label{ for: 'negotiate' } 商談件数：
-    = f.text_field :negotiate, class: 'form__report'
-  .report--form__good_thing
-    %label{ for: 'good_thing' } よかった点：
-    = f.text_area :good_thing, placeholder: '本日の営業活動を通じてよかった点をご記入ください', class: 'form__report' 
-  .report--form__problem
-    %label{ for: 'problem' } 課題：
-    = f.text_area :problem, placeholder: '課題・改善策', class: 'form__report'
-  .report--form__goal
-    %label{ for: 'goal' } 明日の目標：
-    = f.text_area :goal, placeholder: '目標', class: 'form__report'
+  .report--form__left
+    .form__date
+      　活動日：
+      = f.date_select :active_date, {}
+    %ul
+      %li 
+        受注実績：
+        = f.text_field :order, placeholder: '件数', class: 'form__actual'
+      %li 
+        有効電話：
+        = f.text_field :phone, placeholder: '件数', class: 'form__actual'
+      %li 
+        有効訪問：
+        = f.text_field :visit, placeholder: '件数', class: 'form__actual'
+      %li 
+        　　商談：
+        = f.text_field :negotiate, placeholder: '件数', class: 'form__actual'
+  .report--form__right
+    %ul
+      %li 
+        %p よかった点
+        = f.text_area :good_thing, placeholder: '本日の営業活動を通じてよかった点をご記入ください', class: 'form__text' 
+      %li
+        %p 課題
+        = f.text_area :problem, placeholder: '課題・改善策', class: 'form__text'
+      %li
+        %p 明日の目標
+        = f.text_area :goal, placeholder: '目標', class: 'form__text'
   .report--form__submit--btn
     = f.submit '登録する', id: 'submit--btn__report'

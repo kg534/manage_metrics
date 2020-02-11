@@ -2,26 +2,18 @@
   background-color: menu;
 }
 
-.report--chart{
-  width: 900px;
-  height: 300px;
-  background-color: white;
-  margin: 10px auto;
-}
-
-.report--lists{
-  width: 900px;
-  height: 200px;
-  background-color: white;
-  overflow: scroll;
-  margin: 10px auto;
-  display: flex;
-  flex-direction: column; 
+@mixin menu_report{
+  max-width: 700px;
+  margin: 15px 5px;
+  padding: 0.5em;
+  color: #494949;
+  background: #fffaf4;
+  border-left: solid 5px #ffaf58;
 }
 
 .report--header{
   background-color: #333333;
-  width: 900px;
+  width: 1000px;
   height: 50px; 
   margin: 20px auto;
   display: flex;
@@ -44,31 +36,213 @@
   }
 }
 
+.reports{
+  height: 600px;
+  width: 1000px;
+  margin: 0 auto;
+  overflow: scroll;
+}
+
+.report--lists{
+  width: 900px;
+  height: 500px;
+  overflow: scroll;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column; 
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+}
+
 .report{
   height: 600px;
   width: 900px;
   background-color: white;
   margin: 0 auto;
-  overflow: scroll;
+  &__content{
+    padding: 20px;
+    height: 400px;
+    width: 700px;
+    margin: 0 auto;
+    &__actual{
+      font-weight: bold;
+    }
+    &__owner{
+      border-bottom: solid 3px black;
+      margin-bottom: 10px;
+      position: relative;
+      .show__link{
+        text-decoration: none;
+      }
+      &__link{
+        position: absolute;
+        left: 580px;
+        top: -1px;
+      }
+    }
+    &__process ul li {
+      display: inline;
+      margin-right: 1em;
+      font-weight: bold;
+    }
+    &__text ul li {
+      @include menu_report();
+    }
+    &__text ul li h1{
+      font-weight: bold;
+    }
+  }
+}
+
+.report--share{
+  height: 550px;
+  width: 500px;
+  background-color: white;
+  float: left;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  &__content{
+    padding: 10px;
+    &__actual{
+      font-weight: bold;
+    }
+    &__owner{
+      border-bottom: solid 3px black;
+      margin-bottom: 10px;
+      position: relative;
+      .show__link{
+        text-decoration: none;
+      }
+      &__link{
+        position: absolute;
+        left: 400px;
+        top: -2px;
+      }
+    }
+    &__process ul li {
+      display: inline;
+      margin-right: 1em;
+      font-weight: bold;
+    }
+    &__text ul li {
+      @include menu_report();
+    }
+    &__text ul li h1{
+      font-weight: bold;
+    }
+  }
+}
+
+.comments{
+  float: right;
+  width: calc(100% - 500px);
+  height: 550px;
+  &__form{
+    display: flex;
+    .comment__text{
+      margin-left: 20px;
+      padding: 5px;
+      width: 380px;
+      border-radius: 5px;
+      border: 1px solid #D8D8D8;
+    }
+    .comment__submit{
+      float: right;
+      margin-left: 10px;
+      padding: 18px 25px;
+      font-size: 1.0em;
+      background-color: #ffaf58;
+      color: #fff;
+      border-style: none;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+  }
+  &__list{
+    background-color: #fff;
+    height: 474px;
+    box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+    padding: 10px;
+    margin: 10px 10px 0px 20px;
+    overflow: scroll;
+  }
+  .comment{
+    padding: 10px;
+    display: flex;
+    &__owner{
+      color: #ffaf58;
+      font-weight: bold;
+      white-space: nowrap
+    }
+    &__separate{
+      padding: 0 5px;
+    }
+  }
 }
 
 .report--form{
+  height: 500px;
+  width: 900px;
+  background-color: white;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
   position: relative;
-  label{
+  &__left{
+    width: 300px;
+    float: left;
+    .form__date{
+      padding-top: 10px;
+      margin-left: 20px;
+    }
+  }
+  &__left ul li {
+    padding-top: 20px;
+    margin-left: 60px;
+  }
+  .form__actual{
+    width: 80px;
+    padding-left: 5px;
+    margin-left: 20px;
+    border-radius: 5px;
+    border: 1px solid #D8D8D8;
+  }
+  &__right{
     float: right;
-    margin-right: 700px;
+    width: 600px;
   }
-  .form__report{
-   margin-left: 200px;
-   margin-top: -20px;
+  &__right ul li p{
+    padding-top: 10px;
+    margin: 0 70px;
   }
+  .form__text{
+    margin: 0 70px;
+    padding: 5px;
+    width: 500px;
+    height: 120px;
+    border-radius: 5px;
+    border: 1px solid #D8D8D8;
+  }
+}
+
+.input__form--file{
+  display: none;
+}
+
+.fa-file{
+  position: absolute;
+  top: 685px;
+  left: 550px;
+  font-size: 2.5em; 
 }
 
 #submit--btn__report{
   position: absolute;
-  top: 550px;
-  left: 400px;
+  top: 520px;
+  left: 370px;
+  padding: 15px 40px;
+  font-size: 1.0em;
+  background-color: #333333;
+  color: #fff;
+  border-style: none;
+  border-radius: 10px;
 }
 
 

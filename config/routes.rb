@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :reports do
     post :import, on: :collection
     resources :comments, only: :create
+    get :search, on: :collection
   end
 
   resources :calendars, only: [:index, :show] do

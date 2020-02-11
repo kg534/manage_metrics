@@ -1,33 +1,33 @@
 .contents
-  .reports
-    .reports__header
-      .reports__header__title
+  .menu--reports
+    .menu--reports__header
+      .menu--reports__header__title
         = @group.name 
         メンバー最新日報
-      .reports__header__group--select
+      .menu--reports__header__group--select
         = form_tag({ controller: :menus, action: :group_display }, method: 'get') do
           = select_tag :group_id, options_from_collection_for_select(@groups, :id, :name , params[:group_id]), id: 'select-btn'
           = submit_tag '選択', id: 'submit-btn';
-    .reports__contents
+    .menu--reports__contents
       - @latest_reports.each do |reports|
         - reports.each do |report|
-          .report
-            .report__header
-              .report__header__owner
+          .menu--report
+            .menu--report__header
+              .menu--report__header__owner
                 = report.user.name
                 = report.active_date.strftime('%Y年%m月%d日')
-              .report__header__link
+              .menu--report__header__link
                 = link_to "コメントする", report_path(report.id)
-            .report__actual
+            .menu--report__actual
               受注実績：
               = report.order
-            .report__goodthing
+            .menu--report__goodthing
               %h1 よかった点
               = simple_format report.good_thing
-            .report__problem
+            .menu--report__problem
               %h1 課題・改善策
               = simple_format report.problem
-            .report__goal
+            .menu--report__goal
               %h1 次回目標
               = simple_format report.goal
   .chart

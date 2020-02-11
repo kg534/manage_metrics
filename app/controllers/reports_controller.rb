@@ -4,14 +4,21 @@ class ReportsController < ApplicationController
   def index
     @reports = current_user.reports.includes(:user).recent.where(active_date: Time.now.all_month)
 
-    @chart = []
-    @reports.each do |report|
-      @chart << [report.active_date, report.order]
-    end
-
     respond_to do |format|
       format.html
       format.csv { send_data @reports.generate_csv, filename: "reports-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+    end
+  end
+
+  def search
+    date = "#{params[:keyword]}01"
+    
+    if date_valid?(date)
+      search_date = Date.parse(date)
+      @month = "#{search_date.month}月"
+      @reports = Report.search(search_date).where(user_id: current_user.id)
+    else
+      redirect_to reports_path
     end
   end
 
@@ -62,5 +69,9 @@ class ReportsController < ApplicationController
 
   def set_params
     @report = Report.includes(:user).find(params[:id])
+  end
+
+  def date_valid?(str)
+    !! Date.parse(str) rescue false
   end
 end
