@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: manage_metrics_production
-  username: manage_metrics
-  password: <%= ENV['MANAGE_METRICS_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
