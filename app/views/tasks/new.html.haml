@@ -1,4 +1,8 @@
 .contents
+  - if @task.errors.present?
+    %ul#error_explanation
+      - @task.errors.full_messages.each do |message|
+        %li= message 
   .todo--header
     .todo--header__title
       ToDo > タスクの追加
@@ -7,5 +11,15 @@
         = icon('fas', 'undo', class: 'undo') 
   .todo--lists
     .todo--form
-      = render partial: 'form', locals: { task: @task }
-    
+      = form_for(@task) do |f|
+        .todo--form__name
+          = f.label :name, '名称：'
+          = f.text_field :name, placeholder: 'タスク名', id: 'form__name'
+        .todo--form__description
+          = f.label :description, '内容：'
+          = f.text_area :description, placeholder: 'タスク内容を記入して下さい', id: 'form__description' 
+        .todo--form__term
+          = f.label :end, '期限：'
+          = f.datetime_select :end_time, {}, id: 'form__select'
+        .todo--form__submit--btn
+          = f.submit '登録する', id: 'submit--btn'
