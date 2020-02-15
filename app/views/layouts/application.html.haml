@@ -8,5 +8,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'layouts/header'
-    = render 'layouts/side_bar'
+    - if current_user
+      = render 'layouts/side_bar'
     = yield
