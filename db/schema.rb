@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2020_02_07_121706) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.datetime "start_time"
-    t.datetime "end_time"
     t.boolean "complete", default: false
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
