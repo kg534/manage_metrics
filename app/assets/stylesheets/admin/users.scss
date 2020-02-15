@@ -1,3 +1,10 @@
+.contents--user{
+  float: left;
+  background-color: menu;
+  width: 100%;
+  height: calc(100vh - 50px);
+}
+
 .content--user{
   height: 500px;
   width: 600px;
