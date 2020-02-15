@@ -15,7 +15,7 @@
         = @task.description
       .todo--form__term
         %label{ for: 'end_time' } 期限：
-        = @task.end_time.strftime("%Y年%m月%d日 %H:%M:%S")
+        = @task.start_time.strftime("%Y年%m月%d日 %H:%M:%S")
       .todo--form__user
         %label{ for: 'user_name' } 登録者：
         = @task.user.name
