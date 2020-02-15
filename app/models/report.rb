@@ -1,5 +1,6 @@
 class Report < ApplicationRecord
   validates :active_date, presence: true
+  validates :order, presence: true
   validates :phone, presence: true
   validates :visit, presence: true
   validates :negotiate, presence: true

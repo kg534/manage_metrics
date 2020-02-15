@@ -1,4 +1,8 @@
 .contents
+  - if @report.errors.present?
+    %ul#error_explanation
+      - @report.errors.full_messages.each do |message|
+        %li= message 
   .todo--header
     .todo--header__title
       DailyReport > 日報を作成

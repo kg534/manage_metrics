@@ -12,11 +12,12 @@
       = link_to new_report_path do
         = icon('fas', 'plus-circle', class: 'plus') 
   .report--lists
-    - @reports.each do |report|
+    - @reports.each do |report| 
       = render partial: 'report', locals: { report: report }
-  = form_tag import_reports_path, multipart: true do
-    %label.label
-      = icon("far", "file")
-      = file_field_tag :file, class: 'input__form--file'
-    = submit_tag "インポート", id: 'submit_btn'
-  = link_to 'エクスポート', reports_path(format: :csv), class: 'export_btn'
+  .operation--form
+    = form_tag import_reports_path, multipart: true do
+      %label.label 
+        = icon("far", "file")
+        = file_field_tag :file, class: 'input__form--file'
+      = submit_tag "インポート", id: 'submit--import'
+    = link_to 'エクスポート', reports_path(format: :csv), id: 'submit--export'

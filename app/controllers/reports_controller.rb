@@ -3,10 +3,11 @@ class ReportsController < ApplicationController
 
   def index
     @reports = current_user.reports.includes(:user).recent.where(active_date: Time.now.all_month)
+    reports_all = current_user.reports.includes(:user).recent
 
     respond_to do |format|
       format.html
-      format.csv { send_data @reports.generate_csv, filename: "reports-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+      format.csv { send_data reports_all.generate_csv, filename: "reports-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
     end
   end
 
