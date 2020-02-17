@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :current_user_calendar
-  before_action :login_required
+  # before_action :login_required
 
   private
   def current_user
