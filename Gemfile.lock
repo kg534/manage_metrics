@@ -252,7 +252,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
-  capybara (>= 2.15)
+  capybara (>= 2.8)
   chartkick
   chromedriver-helper
   coffee-rails (~> 4.2)
