@@ -17,8 +17,9 @@ header{
 }
 
 .header__menu{
-  position: relative;
   margin-right: 1.2em;
+  line-height: 50px;
+  text-align: center;
   ul li ul{
     display: none;
   }
@@ -30,7 +31,8 @@ header{
   }
   
   ul > li > a{
-    padding: 19px 30px;
+    height: 50px;
+    width: 120px;
     display: block;
     font-size: 0.8em;
     text-decoration: none;
@@ -40,12 +42,6 @@ header{
   ul > li:hover > a{
     background-color: #efefef;
     color: #444;
-  }
-  
-  ul li ul{
-    position: absolute;
-    top: 55px;
-    left: 0;
   }
   
   ul li ul li{
@@ -170,6 +166,20 @@ header{
         position: absolute;
         top: 4px;
         right: 60px;
+        height: 22px;
+        line-height: 22px;
+        padding: 2px 15px;
+        font-size: 1.0em;
+        border-style: none;
+        border-radius: 6px;
+      }
+      #submit-btn{
+        float: right;
+        margin-top: 3px;
+        padding: 1px 6px;
+        font-size: 0.9em;
+        border-style: none;
+        border-radius: 5px;
       }
     }
   }
