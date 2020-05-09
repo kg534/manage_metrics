@@ -102,6 +102,7 @@ header{
   background-color: menu;
   width: calc(100vw - 100px);
   height: calc(100vh - 50px);
+  overflow-y: auto;
 }
 
 .content{
