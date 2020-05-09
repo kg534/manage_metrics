@@ -33,7 +33,7 @@
   .chart
     .chart__header
       .chart__header__title
-        受注実績
+        今月受注実績
     .chart__content
       = column_chart @users.map { |user|                                                              |
         { name: user.name, data: user.reports.where(active_date: Time.now.all_month).map { |report|   |
