@@ -2,6 +2,7 @@
  Manage_metrics
 
 # DEMO
+  <img width="1440" alt="個人アプリ" src="https://user-images.githubusercontent.com/58389003/81714260-d6145380-94b1-11ea-9c4d-9f233807430f.png">
 
 # Features
  簡易的な営業活動支援アプリケーションです。日報を任意のグループで共有でき、実績をグラフで即座に可視化できます。
